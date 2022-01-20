@@ -47,8 +47,10 @@ const SellTable = () => {
         sx={{
           minWidth: 700,
           maxWidth: 1000,
+          marginRight: "auto",
+          marginLeft: "auto",
           border: "1px solid",
-          alignItems: 'center',
+          borderColor: "grey.500"
         }}
         size="small"
         // aria-label="a dense table"
