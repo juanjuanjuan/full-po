@@ -44,7 +44,12 @@ const SellTable = () => {
   return (
     <TableContainer>
       <Table
-        // sx={{ minWidth: 650 }}
+        sx={{
+          minWidth: 700,
+          maxWidth: 1000,
+          border: "1px solid",
+          alignItems: 'center',
+        }}
         size="small"
         // aria-label="a dense table"
       >
