@@ -1,13 +1,3 @@
-import {
-  TableContainer,
-  Table,
-  // Paper,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from "@mui/material/";
-
 const DUMMY_INFO = [
   {
     id: 1,
@@ -15,7 +5,7 @@ const DUMMY_INFO = [
     color: "roja",
     amount: 3,
     place: "ml",
-    date: new Date().toISOString(),
+    date: new Date(),
     who: "pepe",
   },
   {
@@ -24,7 +14,7 @@ const DUMMY_INFO = [
     color: "negra",
     amount: 1,
     place: "ml",
-    date: new Date().toISOString(),
+    date: new Date(),
     who: "Joerge",
   },
   {
@@ -33,7 +23,7 @@ const DUMMY_INFO = [
     color: "azul",
     amount: 2,
     place: "fb",
-    date: new Date().toISOString(),
+    date: new Date(),
     who: "CHano",
   },
 ];
@@ -42,51 +32,34 @@ const SellTable = () => {
   const sells = DUMMY_INFO;
 
   return (
-    <TableContainer>
-      <Table
-        sx={{
-          minWidth: 700,
-          maxWidth: 1000,
-          marginRight: "auto",
-          marginLeft: "auto",
-          border: "1px solid",
-          borderColor: "grey.500"
-        }}
-        size="small"
-        // aria-label="a dense table"
-      >
-        <TableHead>
-          <TableRow>
-            <TableCell align="center">Tamaño</TableCell>
-            <TableCell align="center">Color</TableCell>
-            <TableCell align="center">Cantidad</TableCell>
-            <TableCell align="center">Lugar</TableCell>
-            <TableCell align="center">Fecha</TableCell>
-            <TableCell align="center">Subido por</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {sells.map((item) => {
-            <TableRow
-              key={item.id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            ></TableRow>;
-            return (
-              <tr key={item.id}>
-                <TableCell align="center">{item.size}</TableCell>
-                <TableCell align="center">{item.color}</TableCell>
-                <TableCell align="center">{item.amount}</TableCell>
-                <TableCell align="center">
-                  {item.place === "ml" ? "Mercadolibre" : "Marketplace"}
-                </TableCell>
-                <TableCell align="center">{item.date}</TableCell>
-                <TableCell align="center">{item.who}</TableCell>
-              </tr>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Cantidad</th>
+          <th>Tamaño</th>
+          <th>Color</th>
+          <th>Donde</th>
+          <th>Cuando</th>
+          <th>Quien</th>
+        </tr>
+      </thead>
+      <tbody>
+        {DUMMY_INFO.map((item) => {
+          return (
+            <tr key={item.id}>
+              <td>Colchoneta</td>
+              <td>{item.amount}</td>
+              <td>{item.size}</td>
+              <td>{item.color}</td>
+              <td>{item.place === "ml" ? "Mercadolibre" : "Marketplace"}</td>
+              <td>{item.date.toLocaleString()}</td>
+              <td>{item.who}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 };
 
