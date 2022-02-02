@@ -1,40 +1,15 @@
-const DUMMY_INFO = [
-  {
-    id: 1,
-    size: "grande",
-    color: "roja",
-    amount: 3,
-    place: "ml",
-    date: new Date(),
-    who: "pepe",
-  },
-  {
-    id: 2,
-    size: "grande",
-    color: "negra",
-    amount: 1,
-    place: "ml",
-    date: new Date(),
-    who: "Joerge",
-  },
-  {
-    id: 3,
-    size: "chica",
-    color: "azul",
-    amount: 2,
-    place: "fb",
-    date: new Date(),
-    who: "CHano",
-  },
-];
+const SellTable = (props) => {
+  const sells = props.sellList;
 
-const SellTable = () => {
-  const sells = DUMMY_INFO;
+  const deleteHandle = (id) => {
+    props.onDelete(id);
+  };
 
   return (
     <table>
       <thead>
         <tr>
+          <th>Borrar</th>
           <th>Tipo</th>
           <th>Cantidad</th>
           <th>Tamaño</th>
@@ -45,12 +20,21 @@ const SellTable = () => {
         </tr>
       </thead>
       <tbody>
-        {DUMMY_INFO.map((item) => {
+        {sells.map((item) => {
           return (
             <tr key={item.id}>
-              <td>Colchoneta</td>
+              <td>
+                <button onClick={() => deleteHandle(item.id)}>
+                  <i className="fa fa-close" />
+                </button>
+              </td>
+              <td>{item.type}</td>
               <td>{item.amount}</td>
-              <td>{item.size}</td>
+              <td>
+                {item.size === undefined || item.size === null
+                  ? "-"
+                  : item.size}
+              </td>
               <td>{item.color}</td>
               <td>{item.place === "ml" ? "Mercadolibre" : "Marketplace"}</td>
               <td>{item.date.toLocaleString()}</td>

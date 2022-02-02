@@ -4,9 +4,8 @@ import { useState } from "react";
 const COLORS_COLCHONETAS = ["roja", "negra", "azul", "rosa"];
 const COLORS_TOBIPESAS = ["violeta", "verde"];
 
-const NewSell = () => {
+const NewSell = (props) => {
   const [isColchoneta, setIsColchoneta] = useState(true);
-  const [date, setDate] = useState(new Date());
 
   const typeHandler = (event) => {
     setIsColchoneta(event.target.value === "colchoneta" ? true : false);
@@ -14,7 +13,19 @@ const NewSell = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    // console.log("asdasd");
+    props.onSave(createItem(event.target));
+  };
+
+  const createItem = (data) => {
+    return {
+      type: data[0].value,
+      size: data[0].value === "colchoneta" ? data[2].value : null,
+      color: data[3].value,
+      amount: data[1].value,
+      place: data[4].value,
+      date: data[5].value,
+      who: data[6].value,
+    };
   };
 
   const colors = isColchoneta ? COLORS_COLCHONETAS : COLORS_TOBIPESAS;
@@ -34,6 +45,7 @@ const NewSell = () => {
         name="quantity"
         min="1"
         max="1000"
+        required
       ></input>
       <label htmlFor="size">Tamaño</label>
       <select id="size" name="size" disabled={!isColchoneta}>
@@ -56,8 +68,20 @@ const NewSell = () => {
         <option value="fb">Marketplace</option>
       </select>
       <label htmlFor="date">Fecha</label>
-      <input type="datetime-local" id="date" name="date" defaultValue={new Date().toISOString()}></input>
-      {/* value="2018-06-12T19:30" */}
+      <input
+        type="datetime-local"
+        id="date"
+        name="date"
+        defaultValue={new Date().toISOString()}
+        required
+      ></input>
+      <label htmlFor="who">Quien</label>
+      <select id="who" name="who">
+        <option value="ale">Ale</option>
+        <option value="sergio">Pocha</option>
+        <option value="sabri">Sabri</option>
+        <option value="leo">Leo</option>
+      </select>
       <input type="submit" value="Grabar"></input>
     </form>
   );
