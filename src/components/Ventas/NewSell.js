@@ -6,6 +6,8 @@ const COLORS_TOBIPESAS = ["violeta", "verde"];
 
 const NewSell = (props) => {
   const [isColchoneta, setIsColchoneta] = useState(true);
+  let currentDateTime = new Date();
+  currentDateTime.setHours(currentDateTime.getHours() - 3);
 
   const typeHandler = (event) => {
     setIsColchoneta(event.target.value === "colchoneta" ? true : false);
@@ -72,7 +74,7 @@ const NewSell = (props) => {
         type="datetime-local"
         id="date"
         name="date"
-        defaultValue={new Date().toISOString()}
+        defaultValue={currentDateTime.toISOString().substring(0, 16)}
         required
       ></input>
       <label htmlFor="who">Quien</label>

@@ -10,11 +10,18 @@ const MainHeader = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Ventas">Ventas</NavLink>
+          <NavLink to="/Materiales">Materias Primas</NavLink>
         </li>
         <li>
-          <NavLink to="/Materiales">Materiales</NavLink>
+          <NavLink to="/EnProceso">En proceso</NavLink>
         </li>
+        <li>
+          <NavLink to="/Terminados">Terminados</NavLink>
+        </li>
+        <li>
+          <NavLink to="/Ventas">Ventas</NavLink>
+        </li>
+        
       </ul>
     </nav>
   );

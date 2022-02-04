@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SellTable from "./SellTable";
 import NewSell from "./NewSell";
-import ErrorModal from "../UI/ErrorModal";
+import ErrorModal from "../../UI/ErrorModal";
 
 const Ventas = () => {
   const [sellList, setSellList] = useState([]);
@@ -18,7 +18,7 @@ const Ventas = () => {
 
   useEffect(async () => {
     const response = await fetch(
-      "https://fullpo-4a81e-default-rtdb.firebaseio.com/sells.jsona"
+      "https://fullpo-4a81e-default-rtdb.firebaseio.com/sells.json"
     );
     if (!response.ok) {
       setError({

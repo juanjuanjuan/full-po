@@ -1,6 +1,8 @@
 import "./App.css";
-import Ventas from "./components/Ventas";
-import Materiales from "./components/Materiales";
+import Ventas from "./components/Ventas/Ventas";
+import Materiales from "./components/Materiales/Materiales";
+import EnProceso from "./components/EnProceso/EnProceso";
+import Terminados from "./components/Terminados/Terminados";
 import MainHeader from "./UI/MainHeader";
 import { Routes, Route } from "react-router-dom";
 
@@ -17,8 +19,10 @@ function App() {
 
       <MainHeader />
       <Routes>
-        <Route path="ventas" element={<Ventas />} />
         <Route path="materiales" element={<Materiales />} />
+        <Route path="enproceso" element={<EnProceso />} />
+        <Route path="terminados" element={<Terminados />} />
+        <Route path="ventas" element={<Ventas />} />
       </Routes>
     </div>
   );
