@@ -17,7 +17,7 @@ const MaterialesList = (props) => {
       <tbody>
         {materiales.map((material) => {
           return (
-            <tr key={material.name + material.color}>
+            <tr key={material.id}>
               <td>{material.item}</td>
               <td>
                 {material.color === undefined ||

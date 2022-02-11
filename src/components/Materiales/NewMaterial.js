@@ -8,8 +8,8 @@ const NewMaterial = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    document.getElementById("quantity").value = 1;
     props.onSave(createItem(event.target));
+    document.getElementById("quantity").value = 1;
   };
 
   const itemHandler = (event) => {
@@ -48,6 +48,7 @@ const NewMaterial = (props) => {
         name="quantity"
         min="1"
         max="1000"
+        defaultValue="1"
         required
       ></input>
       <label htmlFor="color">Color</label>
