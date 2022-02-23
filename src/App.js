@@ -5,6 +5,7 @@ import EnProceso from "./components/EnProceso/EnProceso";
 import Terminados from "./components/Terminados/Terminados";
 import MainHeader from "./UI/MainHeader";
 import { Routes, Route } from "react-router-dom";
+import { TerminadosContextProvider } from "./store/terminados-context";
 
 function App() {
   return (
@@ -21,7 +22,14 @@ function App() {
       <Routes>
         <Route path="materiales" element={<Materiales />} />
         <Route path="enproceso" element={<EnProceso />} />
-        <Route path="terminados" element={<Terminados />} />
+        <Route
+          path="terminados"
+          element={
+            <TerminadosContextProvider>
+              <Terminados />
+            </TerminadosContextProvider>
+          }
+        />
         <Route path="ventas" element={<Ventas />} />
       </Routes>
     </div>
