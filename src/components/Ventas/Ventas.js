@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import SellTable from "./SellTable";
 import NewSell from "./NewSell";
 import ErrorModal from "../../UI/ErrorModal";
+import TerminadosContext from "../../store/terminados-context";
 
 const Ventas = () => {
   const [sellList, setSellList] = useState([]);
   const [error, setError] = useState();
+  const terminadosCtx = useContext(TerminadosContext);
   // Esto deberia tener:
   // Parte de Carga nueva (ir agregando)
   //    - Boton + para agregar detalle? Q se agregue solo? Boton para borrar detalle en cada uno? Usamos ID por carga o x linea?
@@ -73,6 +75,7 @@ const Ventas = () => {
         id: data.name,
       };
       setSellList((prevState) => [...prevState, newSell]);
+      terminadosCtx.removeItems(sell);
     } catch (error) {
       setError({
         title: "CATCH en POST de Sells",

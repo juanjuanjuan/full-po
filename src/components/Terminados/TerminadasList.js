@@ -1,5 +1,4 @@
 const TerminadasList = (props) => {
-
   return (
     <table>
       <thead>

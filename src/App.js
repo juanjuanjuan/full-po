@@ -30,7 +30,14 @@ function App() {
             </TerminadosContextProvider>
           }
         />
-        <Route path="ventas" element={<Ventas />} />
+        <Route
+          path="ventas"
+          element={
+            <TerminadosContextProvider>
+              <Ventas />
+            </TerminadosContextProvider>
+          }
+        />
       </Routes>
     </div>
   );

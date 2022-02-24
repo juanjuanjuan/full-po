@@ -51,8 +51,8 @@ const NewSell = (props) => {
       ></input>
       <label htmlFor="size">Tamaño</label>
       <select id="size" name="size" disabled={!isColchoneta}>
-        <option value="big">Grande</option>
-        <option value="small">Chica</option>
+        <option value="grande">Grande</option>
+        <option value="chica">Chica</option>
       </select>
       <label htmlFor="color">Color</label>
       <select id="color" name="color">
